@@ -9,9 +9,10 @@ function pluralizeRecords(n) {
     */
 
     let lastdigit = n%10;
+    let penult = (n%100 - n%10)/10
+    if ( (lastdigit >= 5 && lastdigit <= 9) || lastdigit === 0 || (penult == 1)) return "В результате выполнения запроса было найдено " + n + " записей";
     if (lastdigit === 1) return "В результате выполнения запроса была найдена " + n + " запись";
     if (lastdigit >= 2 && lastdigit <= 4) return "В результате выполнения запроса было найдено " + n + " записи";
-    if ( (lastdigit >= 5 && lastdigit <= 9) || lastdigit === 0) return "В результате выполнения запроса было найдено " + n + " записей";
 }
 
 console.log(pluralizeRecords(0))
@@ -28,3 +29,4 @@ console.log(pluralizeRecords(9))
 console.log(pluralizeRecords(121))
 console.log(pluralizeRecords(252))
 console.log(pluralizeRecords(200))
+console.log(pluralizeRecords(111))
